@@ -1,0 +1,10 @@
+<html>
+<body>
+<table>
+{% for client in form %}
+    <th>
+    	<td><a href="{% url 'expense' id=client.id %}">{{ client }}</td></a>
+    </th>
+</table>
+{% endfor %}
+</body>

@@ -1,0 +1,21 @@
+<html>
+<body>
+<table border='1'>
+
+<tr>
+  <th>Title</th>
+  <th>DateTime</th>
+  <th>Amount</th>
+  <th>Description</th>
+</tr>
+{% for expense in form %}
+    <tr>
+    <td>{{expense.title}}</td>
+    <td>{{expense.expense_timestamp|date:'Y-m-d H:i'}}</td>
+    <td>{{expense.amount}}{{expense.currency}}</td>
+    <td>{{expense.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
