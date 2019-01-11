@@ -1,10 +1,34 @@
 <html>
+{% load static from staticfiles %}
+<head>
+	<title>Surya Software</title>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'style.css' %}">
+		
+</head>
 <body>
-<table>
-{% for client in form %}
-    <th>
+
+<div class='main'>
+    <section class="content">
+      <h1><center>Surya Software</center></h1>
+      <p><center>
+        Assignment for Surya Software</center>
+      </p>
+    </section>
+    <div class="menu"><a href="{% url 'client' %}">Home</a></div>
+    <table class="heavyTable">
+      <thead>
+        <tr>
+          <th>Clients</th>
+         </tr>
+      </thead>
+      <tbody>
+	{% for client in form %}
+    <tr>
     	<td><a href="{% url 'expense' id=client.id %}">{{ client }}</td></a>
-    </th>
-</table>
-{% endfor %}
+    </tr>
+	{% endfor %}
+    </tbody>
+  	</table>
+	</section>
+</div>
 </body>

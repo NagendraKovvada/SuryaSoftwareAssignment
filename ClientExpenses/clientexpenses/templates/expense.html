@@ -1,21 +1,41 @@
 <html>
+{% load static from staticfiles %}
+<head>
+	<title>Surya Software</title>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'style.css' %}">
+	<script src="{% static 'clientexpenses/app.js' %}"></script>	
+</head>
 <body>
-<table border='1'>
-
-<tr>
-  <th>Title</th>
-  <th>DateTime</th>
-  <th>Amount</th>
-  <th>Description</th>
-</tr>
-{% for expense in form %}
-    <tr>
-    <td>{{expense.title}}</td>
-    <td>{{expense.expense_timestamp|date:'Y-m-d H:i'}}</td>
-    <td>{{expense.amount}}{{expense.currency}}</td>
-    <td>{{expense.description}}</td>
-  </tr>
-  {% endfor %}
-</table>
-
+<div class='main'>
+    <section class="content">
+      <h1><center>Surya Software</center></h1>
+      <p><center>
+        Assignment for Surya Software</center>
+      </p>
+    </section>
+    <div class="menu"><a href="{% url 'client' %}">Home<a></div>
+    <table class="heavyTable" border="1">
+      <thead>
+        <tr><th colspan="4" align="center">EXPENSES</th></tr>
+			
+        <tr>
+          	  <th>Title</th>
+			  <th>DateTime</th>
+			  <th>Amount</th>
+			  <th>Description</th>
+		</tr>
+		</thead>
+		{% for expense in form %}
+		<tbody>			
+			    <tr>
+			    <td>{{expense.title}}</td>
+			    <td>{{expense.expense_timestamp|date:'Y-m-d H:i'}}</td>
+			    <td>{{expense.amount}}{{expense.currency}}</td>
+			    <td>{{expense.description}}</td>
+			  </tr>			
+		</tbody>
+		{% endfor %}
+  	</table>
+	</section>
+</div>
 </body>
